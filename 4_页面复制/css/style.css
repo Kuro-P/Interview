@@ -1,0 +1,255 @@
+@charset 'UTF-8';
+html,
+body,
+p,
+ul,
+li,
+figure,
+figcaption,
+table,
+tr,
+td,
+thead {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft Yahei", "Arial", "sans-seri";
+  font-size: 16px;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+.chapter {
+  font-size: 20px;
+}
+.chapter:after {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 3px;
+  background-color: #3793df;
+  margin: 5px auto;
+}
+.introduce {
+  width: 80%;
+  overflow: hidden;
+  padding-bottom: 5%;
+  max-width: 678px;
+  min-width: 320px;
+  text-align: center;
+  margin: 0 auto;
+}
+.introduce .logo {
+  padding: 9.6% 0;
+}
+.introduce .logo img {
+  width: 16.8%;
+}
+.introduce .feature-group {
+  width: 100%;
+}
+.introduce .feature-group .feature {
+  width: 50%;
+  float: left;
+}
+.introduce .feature-group .feature:after {
+  clear: both;
+}
+.introduce .feature-group .feature figure img {
+  width: 60px;
+  height: 60px;
+  padding: 20% 0 16% 0;
+}
+.introduce .feature-group .feature figure figcaption {
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+.introduce .feature-group .feature p {
+  font-size: 12px;
+  color: #8b939f;
+}
+.history {
+  width: 80%;
+  max-width: 750px;
+  min-width: 320px;
+  text-align: center;
+  margin: 0 auto;
+  background-image: url("../imgs/mountain-bg.png");
+  background-repeat: no-repeat;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.history .chapter {
+  font-size: 20px;
+  height: 5%;
+  color: #fff;
+  padding: 8% 0 10.4% 0;
+}
+.history .chapter:after {
+  content: "";
+  display: block;
+  width: 1em;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px auto;
+}
+.history ul.history-cards {
+  list-style: none;
+  position: absolute;
+  width: 356.5%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+  top: 25%;
+  left: 0;
+}
+.history ul.history-cards li {
+  width: 23.84%;
+  height: 60%;
+  background-color: #fff;
+  float: left;
+  transform: scale(0.96);
+  opacity: 0.6;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+.history ul.history-cards li:first-of-type {
+  margin-left: 2.1%;
+}
+.history ul.history-cards li p {
+  width: 100%;
+  height: 4rem;
+  line-height: 4rem;
+  font-weight: 100;
+  text-align: center;
+  font-size: 2rem;
+}
+.history ul.history-cards li table {
+  width: 100%;
+}
+.history ul.history-cards li table tr td {
+  text-align: left;
+  font-size: 12px;
+  height: 30px;
+}
+.history ul.history-cards li table tr td:first-of-type {
+  width : 5.4rem;
+  text-indent: 1rem;
+  text-align: center;
+}
+.history ul.history-cards li+li {
+  margin-left: 0.84%;
+}
+.history input {
+  position: absolute;
+  bottom: 5%;
+  z-index: 2;
+  width: 15px;
+  height: 15px;
+  margin-left: -3px;
+  opacity: 0;
+  cursor: pointer;
+}
+.history input:checked + .pageN {
+  background-color: rgba(255,255,255,0.9);
+}
+.history .pageN {
+  position: absolute;
+  bottom: 5%;
+  z-index: 1;
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+}
+.history .input_1,
+.history .input_1+.pageN {
+  left: 45%;
+}
+.history .input_1:checked ~ ul,
+.history .input_1+.pageN:checked ~ ul {
+  left: 0;
+}
+.history .input_1:checked ~ ul li:nth-of-type(1),
+.history .input_1+.pageN:checked ~ ul li:nth-of-type(1) {
+  transform: scale(1);
+  opacity: 1;
+}
+.history .input_2,
+.history .input_2+.pageN {
+  left: 48%;
+}
+.history .input_2:checked ~ ul,
+.history .input_2+.pageN:checked ~ ul {
+  left: -88%;
+}
+.history .input_2:checked ~ ul li:nth-of-type(2),
+.history .input_2+.pageN:checked ~ ul li:nth-of-type(2) {
+  transform: scale(1);
+  opacity: 1;
+}
+.history .input_3,
+.history .input_3+.pageN {
+  left: 51%;
+}
+.history .input_3:checked ~ ul,
+.history .input_3+.pageN:checked ~ ul {
+  left: -176%;
+}
+.history .input_3:checked ~ ul li:nth-of-type(3),
+.history .input_3+.pageN:checked ~ ul li:nth-of-type(3) {
+  transform: scale(1);
+  opacity: 1;
+}
+.history .input_4,
+.history .input_4+.pageN {
+  left: 54%;
+}
+.history .input_4:checked ~ ul,
+.history .input_4+.pageN:checked ~ ul {
+  left: -264%;
+}
+.history .input_4:checked ~ ul li:nth-of-type(4),
+.history .input_4+.pageN:checked ~ ul li:nth-of-type(4) {
+  transform: scale(1);
+  opacity: 1;
+}
+.story {
+  width: 80%;
+  overflow: hidden;
+  max-width: 678px;
+  min-width: 320px;
+  text-align: center;
+  margin: 0 auto;
+}
+.story .chapter {
+  margin: 7% 0;
+}
+.story .chapter ~p {
+  font-size: 12px;
+  line-height: 3em;
+  text-align: left;
+}
+.story .advantage {
+  margin: 5% 0;
+}
+.story .advantage figure img {
+  width: 80px;
+}
+.story .advantage figure figcaption {
+  font-size: 1rem;
+  line-height: 2rem;
+}
+.story .advantage p {
+  font-size: 12px;
+  line-height: 3em;
+  color: #8b939f;
+}
