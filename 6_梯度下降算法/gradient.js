@@ -1,8 +1,8 @@
-/*ËùÒªÓÃµ½µÄº¯Êı¹«Ê½*/
+/*æ‰€è¦ç”¨åˆ°çš„å‡½æ•°å…¬å¼*/
 function f(x){
     return Math.sin(x);
 }
-/*Çóµ¼Êıº¯Êı*/
+/*æ±‚å¯¼æ•°å‡½æ•°*/
 function dx(f,x){
     var f_change,
         f_last;
@@ -14,21 +14,21 @@ function dx(f,x){
     f_change = f_last - f(x);
     dx = f_change / x_change;
     if(dx>99999){
-        console.log("´Ëº¯Êı²»¿Éµ¼");
+        console.log("æ­¤å‡½æ•°ä¸å¯å¯¼");
     }else{
         return dx;
     }
 }
 
-var step = 0.1; //²½³¤ÉèÖÃÎª0.1 
-var x = 2; //³õÊ¼ÖµÎª2
+var step = 0.1; //æ­¥é•¿è®¾ç½®ä¸º0.1 
+var x = 2; //åˆå§‹å€¼ä¸º2
 var f_change = f(x),
     f_last = f(x);
 var fx = f(x); 
-while(Math.ceil(f_change)>0.0000001){
-    x = x - dx(f,x)*step; // ·ûºÅÎªÕı Çó×î´óÖµ£¬·ûºÅÎª¸º Çó×îĞ¡Öµ
+while(Math.abs(f_change)>0.0000001){
+    x = x - dx(f,x)*step; // ç¬¦å·ä¸ºæ­£ æ±‚æœ€å¤§å€¼ï¼Œç¬¦å·ä¸ºè´Ÿ æ±‚æœ€å°å€¼
     fx = f(x);
-    f_change = Math.abs( fx - f_last);
+    f_change = fx - f_last;
     f_last = fx;
 }
 console.log("x:"+x+" fx:"+fx);
