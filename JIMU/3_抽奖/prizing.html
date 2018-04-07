@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" />
+    <title>Prizing</title>
+</head>
+<body>
+    <style type="text/css">
+        #prize{
+            width:400px;
+            height:150px;
+            border:1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0,0,0,.3);
+            margin:15% auto;
+            text-align:center;
+            font-size:18px;
+        }
+        #prizeBox{
+            height:40px;
+            line-height:40px;
+            margin-bottom:10px;
+            font-size:16px;
+            color:#2e2e2e;
+        }
+        .count{
+            display:inline-block;
+            height:50px;
+            line-height:50px;
+        }
+    </style>
+
+    <div id="prize">
+        <span ref="count" class="count">您今日还可以抽 {{ times }} 次奖</span>
+        <div id="prizeBox">
+        {{ prize }}
+        </div>
+        <button v-on:click="startPrize" v-bind:disabled="prizing">点我抽奖{{seconds}}</button>
+    </div>
+
+    <script src="js\vue.js"></script>
+    <script type="text/javascript">
+
+        var prize = new Vue({
+            el : "#prize",
+            data : {
+                prizes : [1,2,3,4,5,6,7,8,9],
+                times : 0,
+                prize : 0,
+                prizing : false,
+                seconds : ""
+            },
+            mounted : function(){
+                this.init();
+            },
+            methods : {
+                init : function(){
+                    this.times = this.prizes.length;
+                    this.prize = "--";
+                },
+                startPrize : function(){
+                    if(this.prizes.length<=0){
+                        this.$refs.count.innerHTML = "今日抽奖次数已用尽，请明天再来";
+                        this.prizing = true;
+                        return false;
+                    }
+                    this.times--;
+                    this.prize = "抽奖中...请稍等...";
+                    this.prizing = true;
+                    var getIdx = Math.floor(Math.random()*this.prizes.length);
+                    let that = this;
+                    window.setTimeout(function(){                   
+                        that.prize = "恭喜您,本次抽到 "+that.prizes[getIdx]+" 元";
+                        that.prizes.splice(getIdx,1);
+                        that.prizing = false;
+                    },1000); 
+                    return;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
