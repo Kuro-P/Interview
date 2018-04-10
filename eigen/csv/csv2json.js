@@ -9,7 +9,7 @@ function csv2json(file_name) {
     });
 
     let catalog = {}; //生成的数据对象
-    let curList; //正在进行更改操作的某一目录
+    let curList; //正在进行更改操作的某一目录进行缓存
     let chain = []; //链缓存，用于存放与上一行相同部分的目录信息
 
     rl.on('line', (line) => {
@@ -24,7 +24,7 @@ function csv2json(file_name) {
 
         generateList(lineArr);
 
-    }).on('close', (err, data) => print());
+    }).on('close', () => print());
 
     process.on('uncaughtException', function (err) {
         console.log(err);
@@ -32,7 +32,7 @@ function csv2json(file_name) {
 
     //生成目录
     function generateList(lineArr) {
-        let cursor = curList;
+        let cursor = curList; //新一行开始遍历时，重置指针位置
 
         for (var i = 1; i < lineArr.length; i++) {
             if (lineArr[i]) {
@@ -62,15 +62,13 @@ function csv2json(file_name) {
         var path = [];
 
         for (key in catalog) {
-            path[0] = key;
-            if (key == str) {
+
+            if (key == str || hasFind) {
                 hasFind = true;
                 break;
             }
+            path[0] = key;
             loopfind(catalog[key], 0);
-            if (hasFind) {
-                break;
-            }
         }
 
         return path;
@@ -107,7 +105,7 @@ function csv2json(file_name) {
     function print() {
         var result = JSON.stringify(catalog, null, 2);
         console.log(result);
-        var path = find(result, '最小二乘法');
+        var path = find(result, '策略评估');
         console.log(path);
     }
 

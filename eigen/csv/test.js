@@ -9,8 +9,12 @@ const rl = readline.createInterface({
 
 rl.prompt();
 
+
+var path = "";
 rl.on('line', (file_path) => {
-    cvs2json(file_path);
+    path = file_path;
     rl.close();
+}).on('close', () => {
+    cvs2json(path);
 });
 
